@@ -11,6 +11,7 @@ namespace Polybian_Square
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Polybian Square");
             const string alphabet = "abcdefghijklmnopqrstuvwxyz";
             Console.WriteLine("Enter phrase");
             string phras = Console.ReadLine();
