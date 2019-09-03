@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practical work", "practical work.csproj", "{5429A921-205A-4714-AE60-D1005EE648B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caesar_cipher", "Caesar_cipher.csproj", "{5429A921-205A-4714-AE60-D1005EE648B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pw1", "pw1", "{787490A2-D9E6-4C75-BE27-43C107442CE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slogan_cipher", "..\Slogan_cipher\Slogan_cipher.csproj", "{3461E623-D1E2-4F67-9988-1BB48FB2A728}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{5429A921-205A-4714-AE60-D1005EE648B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5429A921-205A-4714-AE60-D1005EE648B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5429A921-205A-4714-AE60-D1005EE648B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3461E623-D1E2-4F67-9988-1BB48FB2A728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3461E623-D1E2-4F67-9988-1BB48FB2A728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3461E623-D1E2-4F67-9988-1BB48FB2A728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3461E623-D1E2-4F67-9988-1BB48FB2A728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5429A921-205A-4714-AE60-D1005EE648B8} = {787490A2-D9E6-4C75-BE27-43C107442CE2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7D07469-AC18-4969-A332-1F21F63CAB0C}
