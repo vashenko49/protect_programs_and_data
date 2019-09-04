@@ -12,7 +12,7 @@ namespace Homophonic_cipher
         {
             Console.WriteLine("Homophonic cipher");
 
-            Console.WriteLine("Enter word:");
+            Console.WriteLine("Enter phrase for cipher");
             var s1 = Console.ReadLine();
             var s2 = string.Empty;
             if (s1 != null)
@@ -29,7 +29,7 @@ namespace Homophonic_cipher
                         s2 += t;
                 }
 
-            Console.WriteLine("Replaced word {0}", s2);
+            Console.WriteLine(s2);
             Console.ReadKey(true);
         }
     }
