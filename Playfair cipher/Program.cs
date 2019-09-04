@@ -98,7 +98,7 @@ namespace Playfair_cipher
                 if (firstLeter[0] == secondLeter[0])
                 {
                     firstLeter[0] = firstLeter[0] + 1;
-                    if ((firstLeter[0] + 1) == h)
+                    if ((firstLeter[0] + 1) == h || quard[firstLeter[0] + 1, (firstLeter[1])] == Convert.ToChar("-"))
                     {
                         firstLeter[0] = 0;
                     }
@@ -107,7 +107,7 @@ namespace Playfair_cipher
                         firstLeter[0] = firstLeter[0] + 1;
                     }
                     secondLeter[0] = secondLeter[0] + 1;
-                    if ((secondLeter[0] + 1) == h)
+                    if ((secondLeter[0] + 1) == h || quard[secondLeter[0]+1, (secondLeter[1])] == Convert.ToChar("-"))
                     {
                         secondLeter[0] = 0;
                     }
@@ -121,7 +121,7 @@ namespace Playfair_cipher
                 else if (firstLeter[1] == secondLeter[1])
                 {
                     firstLeter[1] = firstLeter[1] + 1;
-                    if ((firstLeter[1] + 1) == h)
+                    if ((firstLeter[1] + 1) == h || quard[firstLeter[0], (firstLeter[1] + 1)] == Convert.ToChar("-"))
                     {
                         firstLeter[1] = 0;
                     }
