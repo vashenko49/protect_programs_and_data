@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polybian Square", "Polybian
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trisemus cipher", "Trisemus cipher\Trisemus cipher.csproj", "{4F62827A-F62B-4E73-B9CF-1ADEF8BA3052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playfair cipher", "Playfair cipher\Playfair cipher.csproj", "{D33B59C8-DD7C-4668-91AC-AC838F740986}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{4F62827A-F62B-4E73-B9CF-1ADEF8BA3052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F62827A-F62B-4E73-B9CF-1ADEF8BA3052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F62827A-F62B-4E73-B9CF-1ADEF8BA3052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D33B59C8-DD7C-4668-91AC-AC838F740986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D33B59C8-DD7C-4668-91AC-AC838F740986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D33B59C8-DD7C-4668-91AC-AC838F740986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D33B59C8-DD7C-4668-91AC-AC838F740986}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{89122048-D804-42A1-9F58-21E73D4A26A6} = {3FF0EA79-57B5-4005-ACC7-E75159F1B0E1}
 		{C0228CC1-0E0A-4A06-A005-B68FF9D47C03} = {3FF0EA79-57B5-4005-ACC7-E75159F1B0E1}
 		{4F62827A-F62B-4E73-B9CF-1ADEF8BA3052} = {3FF0EA79-57B5-4005-ACC7-E75159F1B0E1}
+		{D33B59C8-DD7C-4668-91AC-AC838F740986} = {3FF0EA79-57B5-4005-ACC7-E75159F1B0E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94808B25-55E7-4F10-AB29-508E0B44324B}
