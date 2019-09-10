@@ -29,43 +29,38 @@ namespace block_single_permutation
 
             int[,] table = new int[2, key.Length];
 
-            if (phrase.Length == key.Length)
+
+            for (int i = 0; i < key.Length; i++)
             {
+                table[0, i] = i;
+            }
+
+            for (int i = 0; i < key.Length; i++)
+            {
+                table[1, i] = Convert.ToInt32(Convert.ToString(key[i]));
+            }
+
+            string result = "";
 
 
-
-                for (int i = 0; i < key.Length; i++)
+            for (int i = 0;
+                i < key.Length*Math.Ceiling(Convert.ToDouble(phrase.Length) / Convert.ToDouble(key.Length));
+                i+= key.Length)
+            {
+                for (int j = 0; j < key.Length; j++)
                 {
-                    table[0, i] = i;
-                }
-
-                for (int i = 0; i < key.Length; i++)
-                {
-                    table[1, i] = Convert.ToInt32(Convert.ToString(key[i]));
-                }
-
-                string result = "";
-
-                for (int i = 0; i < phrase.Length; i++)
-                {
-                    for (int j = 0; j < phrase.Length; j++)
+                    for (int k = 0; k < key.Length; k++)
                     {
-                        if (table[1, i] == table[0, j])
+                        if (table[1, j] == table[0, k])
                         {
-                            result += phrase[j];
+                            result += k + i >= phrase.Length ? "-" : Convert.ToString(phrase[k + i]);
                         }
-
-
                     }
                 }
+            }
 
-                Console.WriteLine(result);
-                Console.ReadKey();
-            }
-            else
-            {
-                Console.WriteLine("length aren't equal'");
-            }
-        }
+            Console.WriteLine(result);
+            Console.ReadKey();
+        }   
     }
 }
