@@ -11,7 +11,7 @@ namespace Route_Shuffle_Code
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Route Shuffle Code");
+            Console.WriteLine("Route Shuffle Code табличной маршрутной перестановки");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
             phrase = phrase.Replace(' ', '-');

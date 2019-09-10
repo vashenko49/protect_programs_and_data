@@ -47,7 +47,7 @@ namespace double_permutation
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("double permutation");
+            Console.WriteLine("double permutation двойной перестановки");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
             phrase = phrase.Replace(" ", "-");

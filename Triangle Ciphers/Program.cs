@@ -23,7 +23,7 @@ namespace Triangle_Ciphers
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Triangle Ciphers");
+            Console.WriteLine("Triangle Ciphers вертикальной перестановки");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
             Console.WriteLine("Enter key");

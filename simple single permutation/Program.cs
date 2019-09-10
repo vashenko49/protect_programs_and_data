@@ -10,7 +10,7 @@ namespace simple_single_permutation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("simple single permutation");
+            Console.WriteLine("simple single permutation простой одинарной перестановки");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
 

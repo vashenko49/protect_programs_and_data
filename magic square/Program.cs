@@ -17,7 +17,7 @@ namespace magic_square
 
         static void Main(string[] args)
         {
-            Console.WriteLine("magic square");
+            Console.WriteLine("magic square магический квадрат");
             int i, j, k;
 
             Console.WriteLine("Enter phrase");

@@ -10,7 +10,7 @@ namespace cipher_Crossroads
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("cipher Crossroads");
+            Console.WriteLine("cipher Crossroads шифра «Перекресток»");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
 

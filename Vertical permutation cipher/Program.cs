@@ -11,7 +11,7 @@ namespace Vertical_permutation_cipher
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Vertical permutation cipher");
+            Console.WriteLine("Vertical permutation cipher вертикальной перестановки");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
             Console.WriteLine("Enter key");

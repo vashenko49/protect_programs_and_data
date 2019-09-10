@@ -21,7 +21,7 @@ namespace block_single_permutation
 
         static void Main(string[] args)
         {
-            Console.WriteLine("block single permutation");
+            Console.WriteLine("block single permutation блочной одинарной перестановки");
             Console.WriteLine("Enter phrase");
             string phrase = Console.ReadLine();
             Console.WriteLine("Enter key");
