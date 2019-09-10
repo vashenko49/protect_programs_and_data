@@ -8,31 +8,62 @@ namespace rotary_grill
 {
     class Program
     {
-        static int[] randomCoord(int max, int min)
-        {
-            int[] result = new int[2];
-            
-            result[0] = new Random().Next(min, max);
-            result[1] = new Random().Next(min, max);
-
-            return result;
-        }
         static void Main(string[] args)
         {
-            Console.WriteLine("rotary grill");
-            Console.WriteLine("Enter phrase");
-            string phrase = Console.ReadLine();
 
-            int h = Math.Ceiling(Math.Sqrt(phrase.Length)) % 2 == 0 ? Convert.ToInt32(Math.Ceiling(Math.Sqrt(phrase.Length))) : Convert.ToInt32(Math.Ceiling(Math.Sqrt(phrase.Length))) + 1;
+            const int SIZE = 4;
+            string[] buf = new string[SIZE] { "мате", "мати", "ка**", "****" };
 
-            string[,] template = new string[h,h];
-            string[,] table = new string[h,h];
+            int[,] grid = new int[SIZE, SIZE]  {
+                          {1, 0, 1, 0},
+                          {0, 0, 0, 0},
+                          {0, 1, 0, 1},
+                          {0, 0, 0, 0} };
 
+            // вывод зашифрованного сообщения
+            for (int i = 0; i < SIZE; i++)
+            {
+                Console.WriteLine(buf[i]);
+            }
+            Console.WriteLine("");
 
+            // прямой обход решетки
+            Console.WriteLine("0:");
+            for (int i = 0; i < SIZE; i++)
+                for (int j = 0; j < SIZE; j++)
+                    if (grid[i, j] == 1)
+                    {
+                        Console.Write(buf[i][j]);
+                    }
+            Console.WriteLine("");
+            // поворот решетки на 90 градусов по часовой стрелке
+            Console.WriteLine("90:");
+            for (int i = 0; i < SIZE; i++)
+                for (int j = 0; j < SIZE; j++)
+                    if (grid[SIZE - j - 1, i] == 1)
+                    {
+                        Console.Write(buf[i][j]);
+                    }
+            Console.WriteLine("");
+            // поворот решетки на 180 градусов по часовой стрелке
+            Console.WriteLine("180:");
+            for (int i = 0; i < SIZE; i++)
+                for (int j = 0; j < SIZE; j++)
+                    if (grid[SIZE - i - 1, SIZE - j - 1] == 1)
+                    {
+                        Console.Write(buf[i][j]);
+                    }
+            Console.WriteLine("");
+            // поворот решетки на 270 градусов по часовой стрелке
+            Console.WriteLine("270:");
+            for (int i = 0; i < SIZE; i++)
+                for (int j = 0; j < SIZE; j++)
+                    if (grid[j, SIZE - i - 1] == 1)
+                    {
+                        Console.Write(buf[i][j]);
+                    }
+            Console.WriteLine("");
 
-
-
-            Console.WriteLine(h);
             Console.ReadKey();
         }
     }

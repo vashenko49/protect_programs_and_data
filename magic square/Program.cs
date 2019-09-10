@@ -105,7 +105,6 @@ namespace magic_square
 
             Console.WriteLine(result);
 
-
             Console.ReadKey(true);
         }
     }

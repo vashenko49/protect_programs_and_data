@@ -18,7 +18,7 @@ namespace block_single_permutation
             builder.Append(ch);
             return builder.ToString();
         }
-        
+
         static void Main(string[] args)
         {
             Console.WriteLine("block single permutation");
@@ -27,43 +27,45 @@ namespace block_single_permutation
             Console.WriteLine("Enter key");
             string key = Console.ReadLine();
 
-            int[,] table = new int[2,key.Length];
+            int[,] table = new int[2, key.Length];
 
-            for (int i = 0; i < key.Length; i++)
+            if (phrase.Length == key.Length)
             {
-                table[0, i] = i;
-            }
 
-            for (int i = 0; i < key.Length; i++)
-            {
-                Console.WriteLine(key[i]);
-                table[1, i] = Convert.ToInt32(Convert.ToString(key[i]));
-            }
 
-            string result = "";
 
-            for (int i = 0, len = 0; i < Math.Ceiling(Convert.ToDouble(phrase.Length) / Convert.ToDouble(key.Length)); i++, len+=key.Length)
-            {
-                for (int j = 0; j <key.Length; j++)
+                for (int i = 0; i < key.Length; i++)
                 {
-                    int temp = table[0, j];
+                    table[0, i] = i;
+                }
 
-                    for (int k = 0; k < key.Length; k++)
+                for (int i = 0; i < key.Length; i++)
+                {
+                    table[1, i] = Convert.ToInt32(Convert.ToString(key[i]));
+                }
+
+                string result = "";
+
+                for (int i = 0; i < phrase.Length; i++)
+                {
+                    for (int j = 0; j < phrase.Length; j++)
                     {
-                        if (temp == table[1, k])
+                        if (table[1, i] == table[0, j])
                         {
-                            temp = table[0, k];
-                            break;
+                            result += phrase[j];
                         }
 
+
                     }
-
-                    result += temp + len >= phrase.Length ? Convert.ToChar(RandomString()) : phrase[temp + len];
                 }
-            }
 
-            Console.WriteLine(result);
-            Console.ReadKey();
+                Console.WriteLine(result);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("length aren't equal'");
+            }
         }
     }
 }

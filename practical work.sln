@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rotary grill", "rotary gril
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magic square", "magic square\magic square.csproj", "{6479F449-1C43-469A-AF44-009F7CF6C662}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "double permutation", "double permutation\double permutation.csproj", "{36340FAD-3EC3-49D6-B880-F7499999B3BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cipher Crossroads", "cipher Crossroads\cipher Crossroads.csproj", "{45ABE7AA-F360-45BE-AF2A-E87EB919847D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +95,14 @@ Global
 		{6479F449-1C43-469A-AF44-009F7CF6C662}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6479F449-1C43-469A-AF44-009F7CF6C662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6479F449-1C43-469A-AF44-009F7CF6C662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36340FAD-3EC3-49D6-B880-F7499999B3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36340FAD-3EC3-49D6-B880-F7499999B3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36340FAD-3EC3-49D6-B880-F7499999B3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36340FAD-3EC3-49D6-B880-F7499999B3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45ABE7AA-F360-45BE-AF2A-E87EB919847D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45ABE7AA-F360-45BE-AF2A-E87EB919847D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45ABE7AA-F360-45BE-AF2A-E87EB919847D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45ABE7AA-F360-45BE-AF2A-E87EB919847D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +121,8 @@ Global
 		{CA86243A-0F2D-49DE-8B0C-FA74FF41110E} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
 		{83485C47-2F1D-4314-9747-3EE7EC92A005} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
 		{6479F449-1C43-469A-AF44-009F7CF6C662} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
+		{36340FAD-3EC3-49D6-B880-F7499999B3BA} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
+		{45ABE7AA-F360-45BE-AF2A-E87EB919847D} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94808B25-55E7-4F10-AB29-508E0B44324B}
