@@ -94,22 +94,16 @@ namespace rotary_grill
             Random rnd= new Random();
 
             int count = 0;
-            int pre = 0;
-            for (int i = 0; i < h; i++)
+            while (count<h)
             {
-                while (count < h)
+                int x = rnd.Next(0, h-1);
+                int y = rnd.Next(0, h-1);
+                if (!template[x, y])
                 {
-                    int x = rnd.Next(i, h - 1);
-                    if (!template[i, x]&& pre!=x)
-                    {
-                        pre = x;
-                        template[i, x] = true;
-                        count++;
-                        break;
-                    }
+                    template[x, y] = true;
+                    count++;
                 }
             }
-
 
             writeArray(ref template);
 
@@ -122,7 +116,6 @@ namespace rotary_grill
             fillingInIable(ref template, ref table, ref phrase, ref count, ref h);
             writeArray(ref template);
             writeArray(ref table);
-
             for (int i = 0, j=h-1; i <h/2; i++, j--)
             {
                 replaseColom(ref template,i,j);
