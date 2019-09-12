@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cipher Crossroads", "cipher
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rotary grill2", "rotary grill2\rotary grill2.csproj", "{5CBE1DAA-D7B9-4F01-937A-E7B2E9E363D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pw6", "pw6", "{2B302CA7-9E2D-4B10-BE89-6FFD20F9076F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binary representation of numbers", "Binary representation of numbers\Binary representation of numbers.csproj", "{C3BD7668-65CF-44A2-8BBA-644B2736E670}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,10 @@ Global
 		{5CBE1DAA-D7B9-4F01-937A-E7B2E9E363D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CBE1DAA-D7B9-4F01-937A-E7B2E9E363D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBE1DAA-D7B9-4F01-937A-E7B2E9E363D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BD7668-65CF-44A2-8BBA-644B2736E670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BD7668-65CF-44A2-8BBA-644B2736E670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BD7668-65CF-44A2-8BBA-644B2736E670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BD7668-65CF-44A2-8BBA-644B2736E670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +138,7 @@ Global
 		{36340FAD-3EC3-49D6-B880-F7499999B3BA} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
 		{45ABE7AA-F360-45BE-AF2A-E87EB919847D} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
 		{5CBE1DAA-D7B9-4F01-937A-E7B2E9E363D6} = {CC93DE97-FF43-4F42-A3C1-D280F4965D5A}
+		{C3BD7668-65CF-44A2-8BBA-644B2736E670} = {2B302CA7-9E2D-4B10-BE89-6FFD20F9076F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94808B25-55E7-4F10-AB29-508E0B44324B}

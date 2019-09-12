@@ -10,14 +10,7 @@ namespace block_single_permutation
 {
     class Program
     {
-        static Random random = new Random((int)DateTime.Now.Ticks);
-        static string RandomString()
-        {
-            StringBuilder builder = new StringBuilder();
-            char ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
-            builder.Append(ch);
-            return builder.ToString();
-        }
+
 
         static void Main(string[] args)
         {
