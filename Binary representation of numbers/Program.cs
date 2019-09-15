@@ -6,12 +6,72 @@ using System.Threading.Tasks;
 
 namespace Binary_representation_of_numbers
 {
+
     class Program
     {
-        private static int exp = 0;
-        private static int dotPos = 0;
+        public static int[] AddBinary(int[] op1, int[] op2)
+        {
+            if (op1.Length != op2.Length)
+            {
+                throw new System.InvalidOperationException("Arrays must be equal in length");
+            }
+            int[] result = new int[op1.Length];
+            for (int i = 1; i < op1.Length + 1; i++)
+            {
+                if (op1[op1.Length - i] > 1 || op2[op2.Length - i] > 1 || op1[op1.Length - i] < 0 || op2[op2.Length - i] < 0)
+                {
+                    throw new System.ArgumentOutOfRangeException("Array has a number that is invalid in it, argument out of range.");
+                }
+                else
+                {
+                    result[result.Length - i] = op1[op1.Length - i] + op2[op2.Length - i] + result[result.Length - i];
+                    if (result[result.Length - i] == 2)
+                    {
+                        if (result.Length - i - 1 < 0)
+                        {
+                            string message = "Binary numbers added together have grown beyond the range of the array.";
+                            string caption = "Error, overflow.";
+                            Console.WriteLine(message + " " + caption);
+                            int[] escape = new int[1];
+                            return escape;
+                        }
+                        try
+                        {
+                            result[result.Length - i] = 0;
+                            result[result.Length - i - 1] = 1;
+                        }
+                        catch { }
+                    }
+                    if (result[result.Length - i] == 3)
+                    {
+                        if (result.Length - i - 1 < 0)
+                        {
+                            string message = "Binary numbers added together have grown beyond the range of the array.";
+                            string caption = "Error, overflow.";
+                            Console.WriteLine(message + " " + caption);
+                            int[] escape = new int[1];
+                            return escape;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                result[result.Length - i] = 1;
+                                result[result.Length - i - 1] = 1;
+                            }
+                            catch { }
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+    
 
-        public static string FloatConvert32(double input)
+        static int exp = 0;
+        static int dotPos = 0;
+
+        static string FloatConvert32(double input)
         {
             int sign;
 
@@ -56,7 +116,7 @@ namespace Binary_representation_of_numbers
 
         }
 
-        public static String IntBitConvert(double input)
+        static String IntBitConvert(double input)
         {
             double floor = Math.Floor(input);
             double frac = input - floor;
@@ -90,6 +150,7 @@ namespace Binary_representation_of_numbers
             dotPos = bits.Length;
             temp = 0;
             e = -1;
+            bits += ".";
             while (temp <= frac && e > -80)
             {
                 if (temp + Math.Pow(2, e) <= frac)
@@ -120,6 +181,7 @@ namespace Binary_representation_of_numbers
             return bits;
         }
 
+
         static void Main(string[] args)
         {
             Console.WriteLine("Enter");
@@ -136,7 +198,16 @@ namespace Binary_representation_of_numbers
             double dfg = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine(IntBitConvert(dfg));
-            
+
+            int[] one = new[] {0, 0, 0, 1, 1};
+            int[] two = new int[one.Length];
+            two[one.Length - 1] = 1;
+            int[] temp = AddBinary(one, two);
+
+
+            Console.WriteLine(string.Join("",one));
+            Console.WriteLine(string.Join("",two));
+            Console.WriteLine(string.Join("",temp));
             Console.ReadKey();
 
         }
