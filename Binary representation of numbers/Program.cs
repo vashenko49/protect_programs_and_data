@@ -9,7 +9,7 @@ namespace Binary_representation_of_numbers
         {
             if (op1.Length != op2.Length)
             {
-                throw new System.InvalidOperationException("Arrays must be equal in length");
+                throw new InvalidOperationException("Arrays must be equal in length");
             }
 
             int[] result = new int[op1.Length];
@@ -18,8 +18,7 @@ namespace Binary_representation_of_numbers
                 if (op1[op1.Length - i] > 1 || op2[op2.Length - i] > 1 || op1[op1.Length - i] < 0 ||
                     op2[op2.Length - i] < 0)
                 {
-                    throw new System.ArgumentOutOfRangeException(
-                        "Array has a number that is invalid in it, argument out of range.");
+                    throw new ArgumentOutOfRangeException("Array has a number that is invalid in it, argument out of range.");
                 }
                 else
                 {
@@ -42,6 +41,7 @@ namespace Binary_representation_of_numbers
                         }
                         catch
                         {
+                            // ignored
                         }
                     }
 
@@ -64,6 +64,7 @@ namespace Binary_representation_of_numbers
                             }
                             catch
                             {
+                                // ignored
                             }
                         }
                     }
