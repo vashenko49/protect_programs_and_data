@@ -106,8 +106,14 @@ namespace Binary_representation_of_numbers
 
             var ones = new int[res.Length - 1];
             var addition = new int[res.Length - 1];
-            addition[addition.Length - 1] = 1;
-            for (var i = 1; i < res.Length; i++) ones[i - 1] = Convert.ToInt32(Convert.ToString(res[i]));
+            if (addition.Length >= 1)
+            { 
+                addition[addition.Length - 1] = 1;
+            }else
+            {
+                addition[1] = 1;
+            }
+        for (var i = 1; i < res.Length; i++) ones[i - 1] = Convert.ToInt32(Convert.ToString(res[i]));
 
             var result = AddBinary(ones, addition);
 
