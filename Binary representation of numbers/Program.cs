@@ -138,7 +138,11 @@ namespace Binary_representation_of_numbers
             result += IntBitConvert(input, true, false);
 
             var indexComma = result.IndexOf('.');
-            if (indexComma < 0) indexComma = result.Length - 1;
+            if (indexComma < 0)
+            {
+                result += '.';
+                indexComma = result.Length - 1;
+            }
             result = result.Remove(indexComma, 1);
             result = result.Insert(2, ".");
             result += $"*2^{(indexComma > 2 ? indexComma - 2 : 0)}";
