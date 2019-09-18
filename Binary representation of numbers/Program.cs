@@ -91,11 +91,16 @@ namespace Binary_representation_of_numbers
         {
             var res = SignedMagnitudeRepresentation(input);
 
-            for (var i = 1; i < res.Length; i++)
+            if (input < 0)
             {
-                res = res[i] == '0' ? res.Insert(i, "1") : res.Insert(i, "0");
-                res = res.Remove(i + 1, 1);
+                for (var i = 1; i < res.Length; i++)
+                {
+                    res = res[i] == '0' ? res.Insert(i, "1") : res.Insert(i, "0");
+                    res = res.Remove(i + 1, 1);
+                }
+
             }
+
 
             return res;
         }
