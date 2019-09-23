@@ -54,6 +54,12 @@ namespace GammN
                 Console.WriteLine();
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Encrypted phrase");
+            for (int i = 0; i < phrase.Length; i++)
+            {
+                Console.Write(alphabet[table[2, i]]);
+            }
             Console.ReadLine();
         }
     }
