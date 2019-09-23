@@ -8,8 +8,12 @@ namespace Gamm2
 {
     class Program
     {
+
         static void Main(string[] args)
         {
+            Console.WriteLine(101^41);
+            Console.WriteLine(78%33);
+            Console.ReadKey(true);
         }
     }
 }
