@@ -53,12 +53,15 @@ namespace ADFGVX
                 }
             }
 
-            char[,] preTable = new char[phrase.Length, 2+Convert.ToInt32(Math.Ceiling(Convert.ToDouble(preResult.Count) / Convert.ToDouble(phrase.Length)))];
 
 
-            for (int i = 0; i < phrase.Length; i++)
+
+            char[,] preTable = new char[ADFGVX.Length, 2+Convert.ToInt32(Math.Ceiling(Convert.ToDouble(preResult.Count) / Convert.ToDouble(ADFGVX.Length)))];
+
+
+            for (int i = 0, j = ADFGVX.Length-1; i < ADFGVX.Length; i++, j--)
             {
-                preTable[i, 0] = phrase[i];
+                preTable[i, 0] = ADFGVX[j];
 
             }
 
@@ -105,9 +108,9 @@ namespace ADFGVX
             string result = "";
 
             int temp = 0;
-            while (temp<phrase.Length)
+            while (temp< ADFGVX.Length)
             {
-                for (int i = 0; i < phrase.Length; i++)
+                for (int i = 0; i < ADFGVX.Length; i++)
                 {
                     if (temp == Convert.ToInt32(preTable[i, 1]))
                     {
