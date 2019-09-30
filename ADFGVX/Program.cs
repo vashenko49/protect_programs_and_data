@@ -10,6 +10,7 @@ namespace ADFGVX
     class Program
     {
         private static readonly string alphabet = "abcdefghijklmnopqrstuvwxyz ,-+_0123456789.";
+        private static readonly string ADFGVX = "ADFGVX";
 
         static void Main(string[] args)
         {
@@ -23,8 +24,8 @@ namespace ADFGVX
 
             for (int i = 1; i < table.GetLength(0); i++)
             {
-                table[0, i] = alphabet[i-1];
-                table[i, 0] = alphabet[i-1];
+                table[0, i] = ADFGVX[i-1];
+                table[i, 0] = ADFGVX[i-1];
             }
 
             for (int i = 1,g=alphabet.Length-1; i < table.GetLength(0); i++)
