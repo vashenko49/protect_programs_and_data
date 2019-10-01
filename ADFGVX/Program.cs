@@ -9,7 +9,7 @@ namespace ADFGVX
 {
     class Program
     {
-        private static readonly string alphabet = "abcdefghijklmnopqrstuvwxyz ,-+_0123456789.";
+        private static readonly string alphabet = "abcdefghijklmnopqrstuvwxyz ,-+—_0123456789.";
         private static readonly string ADFGVX = "ADFGVX";
 
         static void Main(string[] args)
@@ -85,24 +85,6 @@ namespace ADFGVX
             }
 
 
-            for (int i = 0; i < preTable.GetLength(1); i++)
-            {
-                for (int j = 0; j < preTable.GetLength(0); j++)
-                {
-                    if (i == 1)
-                    {
-                        Console.Write(Convert.ToInt32(preTable[j, i]));
-
-                    }
-                    else
-                    {
-                        Console.Write(Char.ToString(preTable[j, i]));
-
-                    }
-                }
-
-                Console.WriteLine();
-            }
 
 
             string result = "";
