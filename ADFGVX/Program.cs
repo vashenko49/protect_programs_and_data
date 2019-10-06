@@ -9,7 +9,7 @@ namespace ADFGVX
 {
     class Program
     {
-        private static readonly string alphabet = "abcdefghijklmnopqrstuvwxyz ,-+—_0123456789.";
+        private static readonly string alphabet = "abcdefghijklmnopqrstuvwxyz ,.-+";
         private static readonly string ADFGVX = "ADFGVX";
 
         static void Main(string[] args)
