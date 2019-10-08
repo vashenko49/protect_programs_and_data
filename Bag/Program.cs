@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Bag
@@ -122,14 +124,220 @@ namespace Bag
 
             return cipherWeight;
         }
+        public static IEnumerable<string> GetPermutations(string s)
+        {
+            if (s.Length > 1)
+                return from ch in s
+                    from permutation in GetPermutations(s.Remove(s.IndexOf(ch), 1))
+                    select string.Format("{0}{1}", ch, permutation);
+            else
+                return new string[] { s };
+        }
 
         public static void Main(string[] args)
         {
             Console.WriteLine("Enter phase");
-            var phrase = "АБРАМОВ";
+            var phrase = Convert.ToString(Console.ReadLine());
             var windows1251Code = EncodeToWindow1251BinaryCode(phrase);
 
             var ciperWeight = Cipher(ref windows1251Code);
+
+            for (int i = 0; i < ciperWeight.Length; i++)
+            {
+                Console.Write(ciperWeight[i]+" ");
+            }
+
+            Console.WriteLine();
+
+            var DecriptValue = new int[ciperWeight.Length];
+
+            for (int i = 0; i < DecriptValue.Length; i++)
+            {
+                DecriptValue[i] = (ciperWeight[i] * 271) % 420;
+            }
+
+
+
+            int[] decoderValue = new int[DecriptValue.Length];
+
+
+            for (int i = 0; i < DecriptValue.Length; i++)
+            {
+                foreach (var s in GetPermutations("10000000").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+
+                foreach (var s in GetPermutations("11000000").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+                foreach (var s in GetPermutations("11100000").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+                foreach (var s in GetPermutations("11110000").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+                foreach (var s in GetPermutations("11111000").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+                foreach (var s in GetPermutations("11111100").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+                foreach(var s in GetPermutations("11111110").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+                foreach (var s in GetPermutations("11111111").ToArray())
+                {
+
+                    int temp = 0;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1')
+                        {
+                            temp += securKey[j];
+                        }
+                    }
+
+                    if (temp == DecriptValue[i])
+                    {
+                        int codeSymbol = Convert.ToInt32(s, 2);
+                        decoderValue[i] = codeSymbol;
+
+                        break;
+                    }
+                }
+            }
+
+
+            byte[] bytes = decoderValue.Select(x => (byte)x).ToArray();
+
+            var enc = Encoding.GetEncoding(1251);
+
+
+
+            string decoderPhrase = enc.GetString(bytes);
+
+
+
+            Console.WriteLine(decoderValue);
 
             Console.ReadKey();
         }
