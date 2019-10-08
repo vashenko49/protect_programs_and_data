@@ -1,138 +1,137 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Bag
 {
-    public class Item
+    internal class Program
     {
-        private int Value { get; }
-        private int Weight { get; }
-        private bool IsChosen { get; set; }
+        private static int[] securKey = new[] {2, 3, 6, 13, 27, 52, 105, 210};
+        private static int[] openKey = new[] {62, 93, 186, 403, 417, 352, 315, 210};
 
-        public Item(int value, int weight, bool isChosen)
-        {
-            Value = value;
-            Weight = weight;
-            IsChosen = isChosen;
-        }
-        public int GetValue()
-        {
-            return Value;
-        }
-        public int GetWeight()
-        {
-            return Weight;
-        }
-        public bool GetIsChosen()
-        {
-            return IsChosen;
-        }
-        public void GetIsChosen(bool isChosen)
-        {
-            IsChosen = isChosen;
-        }
-    }
 
-    class Program
-    {
+        private static int exp;
+        private static int dotPos;
 
-        private static int _knapsackWeight;
-        private static int _itemCount;
-        private static int[,] _valuesMatrix;
-
-        private static void KnapsackProcess(IReadOnlyList<Item> list)
+        private static string IntBitConvert(double input)
         {
-            for (var i = 1; i <= _itemCount; i++)
+            var floor = Math.Floor(input);
+            var frac = input - floor;
+
+            var e = 0;
+            while (Math.Pow(2, e) <= floor)
+                e++;
+            e = e - 1;
+            var bits = "";
+            double temp;
+            if (input > 1 || input < 0)
             {
-                for (var j = 1; j <= _knapsackWeight; j++)
-                {
-                    if (list[i - 1].GetWeight() > j)
-                        _valuesMatrix[i, j] = _valuesMatrix[i - 1, j];
+                bits += "1";
+
+                temp = Math.Pow(2, e);
+                for (var i = e - 1; i >= 0; i--)
+                    if (temp + Math.Pow(2, i) <= floor)
+                    {
+                        temp += Math.Pow(2, i);
+                        bits += "1";
+                    }
                     else
                     {
-                        _valuesMatrix[i, j] =
-                            Math.Max(list[i - 1].GetValue() + _valuesMatrix[i - 1, j - list[i - 1].GetWeight()],
-                                _valuesMatrix[i - 1, j]);
+                        bits += "0";
+                    }
+
+                exp = bits.Length - 1;
+            }
+
+            if (frac == 0)
+                return bits;
+            dotPos = bits.Length;
+            temp = 0;
+            e = -1;
+            while (temp <= frac && e > -80)
+            {
+                if (temp + Math.Pow(2, e) <= frac)
+                {
+                    temp += Math.Pow(2, e);
+                    bits += "1";
+                }
+
+                else
+                {
+                    bits += "0";
+                }
+
+                e--;
+            }
+
+            temp = 1;
+            if (input < 1 && input > 0)
+            {
+                for (var i = dotPos; i < bits.Length; i++)
+                {
+                    if (bits[i] == '1')
+                    {
+                        exp = (int) temp * -1;
+                        break;
+                    }
+
+                    temp++;
+                }
+
+                if (input < .5)
+                    bits = bits.Remove(0, (int) temp - 1);
+            }
+
+            return bits;
+        }
+
+        private static string GetCodePoint(char ch)
+        {
+            var retVal = "u+";
+            var bytes = Encoding.Unicode.GetBytes(ch.ToString());
+            for (var ctr = bytes.Length - 1; ctr >= 0; ctr--)
+                retVal += bytes[ctr].ToString("X2");
+
+            return retVal;
+        }
+
+        private static string[] EncodeToWindow1251BinaryCode(string phase)
+        {
+            var enc = Encoding.GetEncoding(1251);
+            var bytes = enc.GetBytes(phase);
+            var window1251 = new string[bytes.Length];
+            for (var i = 0; i < bytes.Length; i++) window1251[i] = IntBitConvert(bytes[i]);
+            return window1251;
+        }
+
+        private static int[] Cipher( ref string[] binaryCode)
+        {
+            int[] cipherWeight = new int[binaryCode.Length];
+            for (int i = 0; i < binaryCode.Length; i++)
+            {
+                int temp = 0;
+                for (int j = 0; j < binaryCode[i].Length; j++)
+                {
+                    if (binaryCode[i][j] == '1')
+                    {
+                        temp += openKey[j];
                     }
                 }
-            }
-        }
 
-        private static void PrepareValues(int knapsackWeight)
-        {
-            for (var i = 0; i <= _itemCount; i++)
-            {
-                for (var j = 0; j <= knapsackWeight; j++)
-                    _valuesMatrix[i, j] = 0;
+                cipherWeight[i] = temp;
             }
-        }
 
-        private static List<Item> FindChosenItems(List<Item> list)
-        {
-            var indis = _itemCount;
-            var weight = _knapsackWeight;
-            while (indis > 0 && weight > 0)
-            {
-                if (_valuesMatrix[indis, weight] != _valuesMatrix[indis - 1, weight])
-                {
-                    list[indis - 1].GetIsChosen(true);
-                    weight = weight - list[indis - 1].GetWeight();
-                }
-                indis--;
-            }
-            return list;
+            return cipherWeight;
         }
 
         public static void Main(string[] args)
         {
-            var list = new List<Item>();
+            Console.WriteLine("Enter phase");
+            var phrase = "АБРАМОВ";
+            var windows1251Code = EncodeToWindow1251BinaryCode(phrase);
 
-            Console.Write("Enter Knapsack Max Weight: ");
-            _knapsackWeight = Convert.ToInt32(Console.ReadLine());
+            var ciperWeight = Cipher(ref windows1251Code);
 
-            Console.Write("Enter Item Count: ");
-            _itemCount = Convert.ToInt32(Console.ReadLine());
-
-            _valuesMatrix = new int[_itemCount + 1, _knapsackWeight + 1];
-
-            for (var i = 1; i <= _itemCount; i++)
-            {
-                Console.Write("Enter " + i + ".Item Value: ");
-                var value = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter " + i + ".Item Weight: ");
-                var weight = Convert.ToInt32(Console.ReadLine());
-                var item = new Item(value, weight, false);
-                list.Add(item);
-            }
-
-            PrepareValues(_knapsackWeight);
-            KnapsackProcess(list);
-
-            for (var i = 0; i <= _itemCount; i++)
-            {
-                for (var j = 0; j <= _knapsackWeight; j++)
-                {
-                    Console.Write(_valuesMatrix[i, j]);
-                    Console.Write("\t");
-                }
-                Console.WriteLine("\n");
-            }
-
-            var chosenList = FindChosenItems(list);
-
-            Console.WriteLine("Maximum Value: " + _valuesMatrix[_itemCount, _knapsackWeight]);
-            Console.WriteLine("Chosen Item(s)");
-
-            for (var i = 1; i <= chosenList.Count; i++)
-                if (chosenList[i - 1].GetIsChosen())
-                    Console.WriteLine(i + ". Item - Value: " +
-                                      chosenList[i - 1].GetValue() +
-                                      " - " + "Weight: " + chosenList[i - 1].GetWeight());
-
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
     }
 }
