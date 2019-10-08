@@ -337,7 +337,7 @@ namespace Bag
 
 
 
-            Console.WriteLine(decoderValue);
+            Console.WriteLine(decoderPhrase);
 
             Console.ReadKey();
         }
