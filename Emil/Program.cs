@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,77 +9,108 @@ namespace Emil
 {
     class Program
     {
-        private static string _strIn = string.Empty;
-        private static string _txtBPublicKey = string.Empty;
-        private static string _txtBSecretKey = string.Empty;
-
-        private static int Rand()
+        static void Main(string[] args)
         {
-            var random = new Random();
-            return random.Next();
-        }
-        private static int Power(int a, int b, int n)
-        { // a^b mod n - возведение a в степень b по модулю n
-            var tmp = a;
-            var sum = tmp;
-            for (var i = 1; i < b; i++)
+            //  El-Gamal encryption
+
+            int p = 0, g = 0, x = 0, k = 0;
+            Random random = new Random();
+
+            BigInteger y = 0, a = 0, p0 = 0, m1 = 0;
+            BigInteger[] b = { };
+            BigInteger[] r = { };
+
+            string encData;
+            string decData;
+
+            char[] array;
+
+        //Encryption
+
+        Start:;
+
+            encData = "";
+            decData = "";
+
+            Console.WriteLine("\nEnter prime number between 120 and 1000 to be used in encryption");
+            p = Convert.ToInt32(Console.ReadLine());
+
+            if (IsPrime(p))
             {
-                for (var j = 1; j < a; j++)
+                g = 50;
+                x = 15;
+                y = BigInteger.ModPow(g, x, p);
+
+                Console.WriteLine("\nEnter data to be encrypted");
+                string data = Console.ReadLine();
+
+                array = data.ToCharArray();
+
+                k = 20;
+                a = BigInteger.ModPow(g, k, p);
+
+
+                b = new BigInteger[array.Length];
+                for (int i = 0; i < array.Length; i++)
                 {
-                    sum += tmp;
-                    if (sum >= n)
-                        sum -= n;
+
+                    b[i] = BigInteger.Remainder(BigInteger.Multiply(BigInteger.Pow(y, k), array[i]), p);
+
+                    encData = encData + b[i].ToString();
                 }
-                tmp = sum;
+
+                Console.WriteLine("\nEncrypted data: " + encData);
+
+
+                //Decryption
+
+                r = new BigInteger[b.Length];
+
+                for (int i = 0; i < b.Length; i++)
+                {
+                    p0 = BigInteger.Subtract(BigInteger.Subtract(p, new BigInteger(1)), x);
+                    m1 = BigInteger.ModPow(a, p0, p);
+                    r[i] = BigInteger.Remainder(BigInteger.Multiply(m1, b[i]), p);
+
+                    decData = decData + ((char)r[i]).ToString();
+
+                }
+
+                Console.WriteLine("\nDecrypted data: " + decData);
+                goto Start;
+
             }
-            return tmp;
-        }
-        private static int Mul(int a, int b, int n)
-        { // a*b mod n - умножение a на b по модулю n
-            var sum = 0;
-            for (var i = 0; i < b; i++)
+            else
             {
-                sum += a;
-                if (sum >= n)
-                    sum -= n;
+                Console.WriteLine("\nThis Number is Not a Prime Number , Enter Another One");
+                goto Start;
             }
-            return sum;
         }
-        private static string Crypt(int p, int g, int x)
+
+
+        public static bool IsPrime(int Number)
         {
-            var txtBCrypt = string.Empty;
-            var y = Power(g, x, p);
-            _txtBPublicKey = "Открытый ключ (p,g,y) = (" + p + "," + g + "," + y + ")";
-            _txtBSecretKey = "Закрытый ключ x = " + x;
-            if (_strIn.Length <= 0) return txtBCrypt;
-            var temp = _strIn.ToCharArray();
-            for (var i = 0; i <= _strIn.Length - 1; i++)
+
+            if ((Number & 1) == 0)
             {
-                var m = (int)temp[i];
-                if (m <= 0) continue;
-                var k = Rand() % (p - 2) + 1;
-                var a = Power(g, k, p);
-                var b = Mul(Power(y, k, p), m, p);
-                txtBCrypt = txtBCrypt + a + " " + b + " ";
+                if (Number == 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
-
-            return txtBCrypt;
-        }
-        public static void Main(string[] args)
-        {
-            var p = Convert.ToInt32(Rand());
-            var g = Convert.ToInt32(Rand());
-            var x = Convert.ToInt32(Rand());
-            Console.Write("Enter text to encrypt\t");
-            _strIn = Console.ReadLine();
-
-            Console.Write($"p = {p}\n");
-            Console.Write($"g = {g}\n");
-            Console.Write($"x = {x}\n");
-
-            Console.WriteLine($"\nEncrypted text\t{Crypt(p, g, x)}");
-            Console.ReadKey(true);
+            for (int i = 3; (i * i) <= Number; i += 2)
+            {
+                if ((Number % i) == 0)
+                {
+                    return false;
+                }
+            }
+            return Number != 1;
         }
     }
 }

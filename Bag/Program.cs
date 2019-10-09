@@ -137,7 +137,7 @@ namespace Bag
         public static void Main(string[] args)
         {
             Console.WriteLine("Enter phase");
-            var phrase = Convert.ToString(Console.ReadLine());
+            var phrase = "Проверка текста на уникальность онлайн, точная и быстрая проверка покажет процент уникальности статьи.";
             var windows1251Code = EncodeToWindow1251BinaryCode(phrase);
 
             var ciperWeight = Cipher(ref windows1251Code);

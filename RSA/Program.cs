@@ -56,39 +56,39 @@ namespace RSA
         }
         static void Main(string[] args)
         {
-            //var myrsa = new RSACryptoServiceProvider();
-            //var encoding = new System.Text.ASCIIEncoding();
-            //Console.Write("Enter text to encrypt\t");
-            //var data = Console.ReadLine();
+            var myrsa = new RSACryptoServiceProvider();
+            var encoding = new System.Text.ASCIIEncoding();
+            Console.Write("Enter text to encrypt\t");
+            var data = Console.ReadLine();
 
-            //var newdata = encoding.GetBytes(data ?? throw new NullReferenceException());
-            //var encrypted = myrsa.Encrypt(newdata, false);
+            var newdata = encoding.GetBytes(data ?? throw new NullReferenceException());
+            var encrypted = myrsa.Encrypt(newdata, false);
 
-            //Console.Write("Encrypted Data:\t");
-            //foreach (var t in encrypted)
-            //    Console.Write("{0} ", t);
+            Console.Write("Encrypted Data:\t");
+            foreach (var t in encrypted)
+                Console.Write("{0} ", t);
 
-            //var decrypted = myrsa.Decrypt(encrypted, false); 
-            //Console.Write("\n\nDecrypted Data:\t");
-            //var dData = encoding.GetString(decrypted);
-            //for (var i = 0; i < decrypted.Length; i++)
-            //    Console.Write("{0}", dData[i]);
+            var decrypted = myrsa.Decrypt(encrypted, false);
+            Console.Write("\n\nDecrypted Data:\t");
+            var dData = encoding.GetString(decrypted);
+            for (var i = 0; i < decrypted.Length; i++)
+                Console.Write("{0}", dData[i]);
 
-            int p = 23;
-            int q = 41;
-            int modulus = p * q;
-            int f = (p - 1) * (q - 1);
-            int e = 0;
-            for (int i = 2; i < f; i++)
-            {
-                if (NOD(i, f) == 1)
-                {
-                    e = i;
-                    break;
-                }
-            }
-            string word = "Абрамов";
-            Console.WriteLine(RSADecipher(p * q, f, e,RSACipher(p, q, e, word)));
+            //int p = 23;
+            //int q = 41;
+            //int modulus = p * q;
+            //int f = (p - 1) * (q - 1);
+            //int e = 0;
+            //for (int i = 2; i < f; i++)
+            //{
+            //    if (NOD(i, f) == 1)
+            //    {
+            //        e = i;
+            //        break;
+            //    }
+            //}
+            //string word = "Ващенко";
+            //Console.WriteLine(RSADecipher(p * q, f, e,RSACipher(p, q, e, word)));
             Console.ReadKey(true);
         }
     }
