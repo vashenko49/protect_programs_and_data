@@ -222,7 +222,7 @@ namespace md5_2
 
         static void Main(string[] args)
         {
-            var message = "Vashchenko";
+            var message = "Friday";
             Md5(message);
             Console.ReadKey();
         }
