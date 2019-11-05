@@ -75,6 +75,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "According to the scheme of 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "According to the scheme of Feige-Fiat-Shamir", "According to the scheme of Feige-Fiat-Shamir\According to the scheme of Feige-Fiat-Shamir.csproj", "{DC213F46-FCBE-41AC-89E5-CEE6C42495FE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pw9", "pw9", "{180E5B6E-F192-439D-A833-8FBA33276C95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pw2", "pw2\pw2.csproj", "{624D7804-1DE4-4923-B93D-82503FA1F132}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +197,10 @@ Global
 		{DC213F46-FCBE-41AC-89E5-CEE6C42495FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC213F46-FCBE-41AC-89E5-CEE6C42495FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC213F46-FCBE-41AC-89E5-CEE6C42495FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624D7804-1DE4-4923-B93D-82503FA1F132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624D7804-1DE4-4923-B93D-82503FA1F132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624D7804-1DE4-4923-B93D-82503FA1F132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624D7804-1DE4-4923-B93D-82503FA1F132}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -226,6 +234,7 @@ Global
 		{9F5138F7-9E48-4F86-8FD7-4F0DCD31E71A} = {945940BD-5B83-4B62-84BD-49BB93DBC5ED}
 		{6B45C5B9-B1EC-4D6F-8505-127896D412C3} = {945940BD-5B83-4B62-84BD-49BB93DBC5ED}
 		{DC213F46-FCBE-41AC-89E5-CEE6C42495FE} = {945940BD-5B83-4B62-84BD-49BB93DBC5ED}
+		{624D7804-1DE4-4923-B93D-82503FA1F132} = {180E5B6E-F192-439D-A833-8FBA33276C95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94808B25-55E7-4F10-AB29-508E0B44324B}
