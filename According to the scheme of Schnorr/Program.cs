@@ -9,7 +9,7 @@ namespace According_to_the_scheme_of_Schnorr
     class Program
     {
         static string alf = "abcdefghijklmnopqrstuvwxyz";
-        static string str = "karandas";
+        static string str = "vashenko";
         static Random rand = new Random();
 
         private static int findG(int q, int p)

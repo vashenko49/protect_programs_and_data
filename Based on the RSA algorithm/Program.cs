@@ -10,7 +10,7 @@ namespace Based_on_the_RSA_algorithm
     class Program
     {
         static string alf = "abcdefghijklmnopqrstuvwxyz";
-        static string str = "karandas";
+        static string str = "vashenko";
         static Random rand = new Random();
 
         public static int RSAauthentication()

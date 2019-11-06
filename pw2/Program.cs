@@ -11,8 +11,8 @@ namespace pw2
         public static void Main(string[] args)
         {
             RSA.checkECP();
-            HOST94.checkECP();
-            HOST12.checkECP();
+            //HOST94.checkECP();
+            //HOST12.checkECP();
 
             Console.ReadLine();
         }
