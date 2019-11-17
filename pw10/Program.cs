@@ -14,9 +14,9 @@ namespace pw10
         {
             string alphabet = "ABCDEFGHIJKLMNOPQRSTUWXYZ";
 
-            string lastName = "LYUZNYAK";
+            string lastName = "VASHENKO";
 
-            string full = "LYUZNYAKKLYMKO";
+            string full = "VASHENKOSERGOV";
 
             int[] positions = new int[full.Length];
 
@@ -86,7 +86,7 @@ namespace pw10
             Console.WriteLine();
 
             string dect = "1011";
-            Console.WriteLine("dect = " + dect + "(" + Integer.toBinaryString(1011) + ")"); //dect.toString(2); Integer. Convert.ToInt32(dect, 2) + ")");
+            Console.WriteLine("dect = " + dect + "(" + Integer.toBinaryString(1011) + ")"); 
             Console.WriteLine();
 
             Console.WriteLine("Делимое \t Формула \t Частное \t Остаток \t Результат");
